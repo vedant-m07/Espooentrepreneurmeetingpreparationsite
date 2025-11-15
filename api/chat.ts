@@ -1,4 +1,23 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
+import fs from "fs";
+import path from "path";
+
+let cachedSystemPrompt: string | null = null;
+
+function getSystemPrompt(): string {
+  if (cachedSystemPrompt) return cachedSystemPrompt;
+
+  const systemPromptPath = path.join(process.cwd(), "data", "system_prompt.txt");
+
+  try {
+    const contents = fs.readFileSync(systemPromptPath, "utf-8");
+    cachedSystemPrompt = contents.trim();
+    return cachedSystemPrompt;
+  } catch (err) {
+    console.error("Failed to read system prompt file:", err);
+    return "You are Business Bot. Reply in same language as user. Keep replies short and precise. Format your answers in clear paragraphs.";
+  }
+}
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (req.method !== "POST") {
@@ -18,6 +37,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     return;
   }
 
+  const systemPrompt = getSystemPrompt();
+
   const r = await fetch("https://api.featherless.ai/v1/chat/completions", {
     method: "POST",
     headers: {
@@ -26,7 +47,16 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     },
     body: JSON.stringify({
       model: "deepseek-ai/DeepSeek-V3-0324",
-      messages: [{ role: "user", content: message }],
+      messages: [
+        {
+          role: "system",
+          content: systemPrompt,
+        },
+        {
+          role: "user",
+          content: message,
+        },
+      ],
     }),
   });
 
@@ -35,3 +65,4 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
   res.status(200).json({ reply });
 }
+
