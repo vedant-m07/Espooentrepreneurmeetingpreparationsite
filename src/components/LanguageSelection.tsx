@@ -67,7 +67,7 @@ export function LanguageSelection({ onLanguageSelect }: LanguageSelectionProps) 
   const handleLanguageClick = (lang: typeof languages[0]) => {
     if (!lang.available) {
       // In a real app, this would redirect to Helsinki's service
-      alert(`This service is available in Helsinki. You will be redirected to Helsinki's business advisory service.`);
+      alert(`https://www.hel.fi/en/business-and-work/start-a-business/book-a-business-advisory-session`);
       window.open('https://www.hel.fi/en/enterprise-and-work', '_blank');
       return;
     }
@@ -80,8 +80,8 @@ export function LanguageSelection({ onLanguageSelect }: LanguageSelectionProps) 
     }
   };
 
-  const currentStrings = selectedLanguage 
-    ? languageStrings[selectedLanguage] 
+  const currentStrings = selectedLanguage
+    ? languageStrings[selectedLanguage]
     : languageStrings.en;
 
   return (
@@ -89,8 +89,8 @@ export function LanguageSelection({ onLanguageSelect }: LanguageSelectionProps) 
       {/* Top bar */}
       <div className="bg-[#0050BB] text-white py-2 px-4">
         <div className="container mx-auto">
-          <a 
-            href="https://www.espoo.fi" 
+          <a
+            href="https://www.espoo.fi"
             className="inline-flex items-center gap-2 text-white hover:underline text-sm"
             target="_blank"
             rel="noopener noreferrer"
@@ -135,8 +135,8 @@ export function LanguageSelection({ onLanguageSelect }: LanguageSelectionProps) 
                     flex items-center gap-4 p-4 rounded-lg border-2 transition-all
                     ${selectedLanguage === lang.code
                       ? 'border-[#0050BB] bg-blue-50'
-                      : lang.available 
-                        ? 'border-[#D9D9D9] hover:border-[#0050BB] hover:bg-blue-50' 
+                      : lang.available
+                        ? 'border-[#D9D9D9] hover:border-[#0050BB] hover:bg-blue-50'
                         : 'border-[#D9D9D9] hover:border-gray-400 hover:bg-gray-50'
                     }
                   `}
