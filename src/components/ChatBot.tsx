@@ -16,18 +16,13 @@ interface Message {
   timestamp: Date;
 }
 
-export function ChatBot({ language }: ChatBotProps) {
-  const [isOpen, setIsOpen] = useState(false);
-  const [messages, setMessages] = useState<Message[]>([]);
-  const [inputValue, setInputValue] = useState('');
-  const t = translations[language];
-
-  const handleSend = () => {
+  const handleSend = async () => {
     if (!inputValue.trim()) return;
 
+    const messageText = inputValue;
     const userMessage: Message = {
       id: Date.now().toString(),
-      text: inputValue,
+      text: messageText,
       sender: 'user',
       timestamp: new Date(),
     };
@@ -35,16 +30,33 @@ export function ChatBot({ language }: ChatBotProps) {
     setMessages(prev => [...prev, userMessage]);
     setInputValue('');
 
-    // Mock AI response
-    setTimeout(() => {
+    try {
+      const res = await fetch('/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: messageText }),
+      });
+
+      const data = await res.json();
+
       const botMessage: Message = {
         id: (Date.now() + 1).toString(),
-        text: getMockResponse(inputValue, language),
+        text: data.reply ?? 'Sorry, something went wrong on the server.',
+        sender: 'bot',
+        timestamp: new Date(),
+      };
+
+      setMessages(prev => [...prev, botMessage]);
+    } catch (error) {
+      console.error(error);
+      const botMessage: Message = {
+        id: (Date.now() + 1).toString(),
+        text: 'Sorry, I could not reach the server.',
         sender: 'bot',
         timestamp: new Date(),
       };
       setMessages(prev => [...prev, botMessage]);
-    }, 1000);
+    }
   };
 
   const handleOpen = () => {
