@@ -117,6 +117,7 @@ export const translations: Record<Language, any> = {
       kauppalehtiMessage: 'Financial data retrieved from Kauppalehti',
       kauppalehtiNote: 'Your company\'s finances have been automatically retrieved and do not need to be manually entered.',
       retrievedDataTitle: 'Retrieved Financial Data',
+      mockCashflowStatement: 'Revenue projections based on historical data:\nQ1: €45,000\nQ2: €52,000\nQ3: €48,000\nQ4: €55,000\n\nExpenses include rent, salaries, marketing, and operations.',
     },
     step5: {
       title: 'Schedule Your Meeting',
@@ -272,6 +273,7 @@ export const translations: Record<Language, any> = {
       kauppalehtiMessage: 'Taloudelliset tiedot haettu Kauppalehdestä',
       kauppalehtiNote: 'Yrityksesi taloudelliset tiedot on automaattisesti haettu eikä niitä tarvitse syöttää käsin.',
       retrievedDataTitle: 'Haetut taloudelliset tiedot',
+      mockCashflowStatement: 'Tulotennusteet perustuen historiallisiin tiedoisiin:\nQ1: 45 000 €\nQ2: 52 000 €\nQ3: 48 000 €\nQ4: 55 000 €\n\nKulut sisältävät vuokraa, palkkoja, markkinointia ja toimintaa.',
     },
     step5: {
       title: 'Varaa tapaaminen',
@@ -427,6 +429,7 @@ export const translations: Record<Language, any> = {
       kauppalehtiMessage: 'Finansiella data hämtade från Kauppalehti',
       kauppalehtiNote: 'Ditt företags finansiella data har hämtats automatiskt och behöver inte matas in manuellt.',
       retrievedDataTitle: 'Hämtade finansiella data',
+      mockCashflowStatement: 'Inkomstprognoser baserade på historiska data:\nQ1: 45 000 €\nQ2: 52 000 €\nQ3: 48 000 €\nQ4: 55 000 €\n\nUtgifter inkluderar hyra, löner, marknadsföring och drift.',
     },
     step5: {
       title: 'Boka ditt möte',
@@ -582,6 +585,7 @@ export const translations: Record<Language, any> = {
       kauppalehtiMessage: '财务数据从 Kauppalehti 检索',
       kauppalehtiNote: '您的公司财务数据已自动检索，无需手动输入。',
       retrievedDataTitle: '检索到的财务数据',
+      mockCashflowStatement: '基于历史数据的收入预测:\nQ1: €45,000\nQ2: €52,000\nQ3: €48,000\nQ4: €55,000\n\n费用包括租金、工资、营销和运营。',
     },
     step5: {
       title: '安排您的会面',
@@ -737,6 +741,7 @@ export const translations: Record<Language, any> = {
       kauppalehtiMessage: 'Финансовые данные получены из Kauppalehti',
       kauppalehtiNote: 'Финансы вашей компании автоматически получены и не требуют ручного ввода.',
       retrievedDataTitle: 'Полученные финансовые данные',
+      mockCashflowStatement: 'Прогнозы доходов на основе исторических данных:\nQ1: €45,000\nQ2: €52,000\nQ3: €48,000\nQ4: €55,000\n\nРасходы включают аренду, зарплаты, маркетинг и операции.',
     },
     step5: {
       title: 'Запланируйте встречу',

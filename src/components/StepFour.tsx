@@ -29,7 +29,7 @@ export function StepFour({ data, onUpdate, onNext, onBack, language }: StepFourP
     monthlyExpenses: '€8,500',
     projectedRevenue: '€15,000',
     fundingNeeded: '€25,000',
-    cashflowStatement: 'Revenue projections based on historical data:\nQ1: €45,000\nQ2: €52,000\nQ3: €48,000\nQ4: €55,000\n\nExpenses include rent, salaries, marketing, and operations.',
+    cashflowStatement: t.step4.mockCashflowStatement,
   };
 
   const updateFinancialNumbers = (field: string, value: string) => {
