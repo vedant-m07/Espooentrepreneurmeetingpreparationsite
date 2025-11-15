@@ -68,7 +68,7 @@ export function LanguageSelection({ onLanguageSelect }: LanguageSelectionProps) 
     if (!lang.available) {
       // In a real app, this would redirect to Helsinki's service
       alert(`https://www.hel.fi/en/business-and-work/start-a-business/book-a-business-advisory-session`);
-      window.open('https://www.hel.fi/en/enterprise-and-work', '_blank');
+      window.open('https://www.hel.fi/en/business-and-work/start-a-business/book-a-business-advisory-session', '_blank');
       return;
     }
     setSelectedLanguage(lang.code);
