@@ -69,6 +69,7 @@
     --font-weight-normal: 400;
     --font-weight-medium: 500;
     --tracking-wider: .05em;
+    --animate-bounce: bounce 1s infinite;
     --default-transition-duration: .15s;
     --default-transition-timing-function: cubic-bezier(.4, 0, .2, 1);
     --default-font-family: var(--font-sans);
@@ -573,6 +574,10 @@
     height: calc(var(--spacing) * 1);
   }
 
+  .h-2 {
+    height: calc(var(--spacing) * 2);
+  }
+
   .h-4 {
     height: calc(var(--spacing) * 4);
   }
@@ -627,6 +632,10 @@
 
   .min-h-screen {
     min-height: 100vh;
+  }
+
+  .w-2 {
+    width: calc(var(--spacing) * 2);
   }
 
   .w-4 {
@@ -715,6 +724,10 @@
     translate: var(--tw-translate-x) var(--tw-translate-y);
   }
 
+  .animate-bounce {
+    animation: var(--animate-bounce);
+  }
+
   .cursor-default {
     cursor: default;
   }
@@ -761,6 +774,10 @@
 
   .justify-start {
     justify-content: flex-start;
+  }
+
+  .gap-1 {
+    gap: calc(var(--spacing) * 1);
   }
 
   .gap-1\.5 {
@@ -931,6 +948,10 @@
 
   .bg-gray-100 {
     background-color: var(--color-gray-100);
+  }
+
+  .bg-gray-400 {
+    background-color: var(--color-gray-400);
   }
 
   .bg-green-100 {
@@ -2021,6 +2042,18 @@ html {
   syntax: "*";
   inherits: false;
   initial-value: 1;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    animation-timing-function: cubic-bezier(.8, 0, 1, 1);
+    transform: translateY(-25%);
+  }
+
+  50% {
+    animation-timing-function: cubic-bezier(0, 0, .2, 1);
+    transform: none;
+  }
 }
 
 @keyframes enter {
